@@ -149,6 +149,29 @@ h2 {
   gap: 0.6rem;
 }
 
+.about-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.about-card {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  padding: 0.95rem;
+}
+
+.about-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.04rem;
+}
+
+.about-card p {
+  font-size: 0.94rem;
+}
+
 .chip {
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--line);
@@ -185,12 +208,73 @@ h2 {
   font-weight: 700;
 }
 
-.mail-link {
-  display: inline-block;
-  margin-top: 0.9rem;
-  color: var(--accent-dark);
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+  margin-top: 0.35rem;
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.95rem;
+}
+
+.contact-item {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: #fff;
+  padding: 0.75rem 0.85rem;
+}
+
+.contact-item span {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.contact-item strong {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.95rem;
+}
+
+.contact-form {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+}
+
+.contact-form label {
+  font-size: 0.83rem;
+  color: var(--muted);
   font-weight: 700;
-  border-bottom: 1px solid currentColor;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  background: #fffefb;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .btn {
+  margin-top: 0.35rem;
+  text-align: center;
 }
 
 .footer {
@@ -210,5 +294,10 @@ h2 {
 
   .hero {
     padding-bottom: 2.1rem;
+  }
+
+  .about-points,
+  .contact-layout {
+    grid-template-columns: 1fr;
   }
 }

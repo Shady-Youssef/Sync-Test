@@ -28,6 +28,43 @@ const projects = [
   }
 ];
 
+const aboutHighlights = [
+  {
+    title: "Product Mindset",
+    description:
+      "I focus on user outcomes first, then build interfaces that are fast, clear, and easy to evolve."
+  },
+  {
+    title: "Clean Delivery",
+    description:
+      "I structure components and styles for maintainability so teams can ship updates without regressions."
+  },
+  {
+    title: "Reliable Collaboration",
+    description:
+      "I communicate clearly with designers and founders to move from idea to production with less friction."
+  }
+];
+
+const contactLinks = [
+  { label: "Email", value: "hello@example.com", href: "mailto:hello@example.com" },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/yourname",
+    href: "https://www.linkedin.com/in/yourname"
+  },
+  {
+    label: "GitHub",
+    value: "github.com/yourname",
+    href: "https://github.com/yourname"
+  },
+  {
+    label: "Location",
+    value: "Cairo, Egypt (UTC+2)",
+    href: "https://maps.google.com/?q=Cairo"
+  }
+];
+
 function App() {
   return (
     <div className="site">
@@ -68,6 +105,14 @@ function App() {
             architecture, and lightweight tooling that stays easy to deploy and
             sync.
           </p>
+          <div className="about-points">
+            {aboutHighlights.map((item) => (
+              <article className="about-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
           <div className="chip-grid">
             {skills.map((skill) => (
               <span className="chip" key={skill}>
@@ -92,13 +137,53 @@ function App() {
 
         <section className="section contact" id="contact">
           <h2>Contact</h2>
-          <p>
-            Open for freelance and full-time opportunities. Reach out and let’s
-            build something useful.
-          </p>
-          <a className="mail-link" href="mailto:hello@example.com">
-            hello@example.com
-          </a>
+          <div className="contact-layout">
+            <div>
+              <p>
+                Open for freelance and full-time opportunities. Reach out and
+                let&apos;s build something useful.
+              </p>
+              <div className="contact-list">
+                {contactLinks.map((link) => (
+                  <a
+                    className="contact-item"
+                    href={link.href}
+                    key={link.label}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  >
+                    <span>{link.label}</span>
+                    <strong>{link.value}</strong>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <form className="contact-form">
+              <label htmlFor="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" />
+
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+              />
+
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell me about your project..."
+              />
+
+              <a className="btn btn-primary" href="mailto:hello@example.com">
+                Send via Email
+              </a>
+            </form>
+          </div>
         </section>
       </main>
 
